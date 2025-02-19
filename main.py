@@ -21,7 +21,7 @@ app = FastAPI(
 async def root():
     return {"message": "Bienvenido a la API de Usuarios"}
 
-# POST: Crear usuario
+# Feature: POST: Crear usuario.
 @app.post("/users/", response_model=schemas.UserResponse, tags=["Users"])
 async def create_user(user: schemas.UserCreate, db: Session = Depends(database.get_db)):
     try:
